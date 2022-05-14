@@ -1,0 +1,119 @@
+<div id="masthead">  
+    <!-- /cont -->
+    
+    
+  
+  
+  <div class="container container-body">
+    <div class="row">
+      
+      <div class="col-md-12"> 
+        
+        <div class="panel">
+          <div class="panel-body">
+            
+            
+            <div class="brand-title">New Notice</div>
+            <!--/stories-->
+            <div  class="inputs">
+     
+
+
+                <form  action="" class="tm-edit-product-form"
+                ngForm
+                #f="ngForm"
+                >
+                  <br>
+                  <div class="form-group">
+                      <input type="text" class="form-control"  name="company" [(ngModel)]="addnotice.company" placeholder="Company name"  required>
+                      <label  id="error1"></label>
+                  </div>
+                  
+                  
+                  <div class="form-group">
+                     <input type="text"  class="form-control" name="title" [(ngModel)]="addnotice.title" placeholder="Job title" required >
+                     <label  id="error4"></label>
+                     
+                  </div>
+                  
+  
+                 <div class="form-group">
+                  <input type="text"  class="form-control" name="disc" [(ngModel)]="addnotice.disc" placeholder="Job description"  style="padding-right: 10%; padding-bottom: 10%;padding-top: 1.5%;" required>
+                  <label  id="error4"></label>
+                  
+               </div>
+               <div class="form-group">
+                 <label for="eligibility" col-xs-3 col-sm-2 control-label>Eligibility:</label>
+                <input type="text" style="width: 20%; float: left; margin: 10px;"  class="form-control" name="xth" [(ngModel)]="addnotice.xth" placeholder="Xth Percentage"  required  pattern="^\d+(\.\d+)*$">
+                <input type="text" style="width: 20%; float: left; margin: 10px;"  class="form-control" name="xiith" [(ngModel)]="addnotice.xiith" placeholder="XIIth Percentage"  required  pattern="^\d+(\.\d+)*$" >
+                <input type="text" style="width: 25%; float: left; margin: 10px;"  class="form-control" name="gpa" [(ngModel)]="addnotice.gpa" placeholder="Current GPA" required  pattern="^\d+(\.\d+)*$"  >
+
+                <input type="text" style="width: 25%; float: left; margin: 10px;"  class="form-control" name="qual" [(ngModel)]="addnotice.qual" placeholder="Qualification" required>
+
+
+                <label  id="error4"></label>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+             </div>
+            
+                 <div class="form-group">
+                  <label  id="error4" col-xs-3 col-sm-2 control-label>Deadline:</label>
+                  <input type="date"  class="form-control" name="deadline" [(ngModel)]="addnotice.deadline" placeholder="Deadline" required>
+                  
+                  
+                 </div>
+                 <div class="form-group">
+                   
+                    <input type="text"  class="form-control" name="ctc" [(ngModel)]="addnotice.ctc" placeholder="CTC" required pattern="^\d+(\.\d+)*$">
+                    <label  id="error4"></label>
+                    
+                   </div>
+
+                   <div class="form-group">
+                   
+                    <input type="text"  class="form-control" name="link" [(ngModel)]="addnotice.link" placeholder="Reg Link" required>
+                    <label  id="error4"></label>
+                    
+                   </div>
+                  
+                  <label id="check"></label>
+                  <h1></h1>
+                  <button type="submit"  [disabled]="!f.valid" (click)="AddNotice()" class="btn btn-block" value="submit">POST</button>
+                  
+                  <!--  -->
+                  
+                </form>
+                <hr>
+        
+                
+        
+          </div>  
+            
+            
+                    
+            
+  
+            
+            
+            
+            <!--/stories-->
+            
+            
+            
+            
+          </div>
+        </div>
+                                                                                         
+                                                      
+                                                        
+         </div><!--/col-12-->
+    </div>
+  </div>
+
+
+  <!-- next -->
+
+  
