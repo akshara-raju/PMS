@@ -29,16 +29,35 @@ import { HodloginComponent } from './hodlogin/hodlogin.component';
 import { PrfacverificationComponent } from './prfacverification/prfacverification.component';
 import { RevaluationComponent } from './revaluation/revaluation.component';
 import { OfferletterComponent } from './offerletter/offerletter.component';
+import { UpdatePlacedDetailsComponent } from './update-placed-details/update-placed-details.component';
+import {SignupComponent} from './signup/signup.component';
 
+import { AuthGuard } from './service/auth.guard';
 
 
 const routes: Routes = [{path:'', component:HomeComponent},
-{path:'login', component:LoginComponent},
-{path:'admin',component:AdminhomeComponent},
-{path:'student', component:StudenthomeComponent},
-{path:'prstudent', component:PrStudenthomeComponent},
-{path:'prfaculty',component:PrFacultyhomeComponent},
-{path:'hod', component:HodhomeComponent},
+
+
+{path:'login', component:LoginComponent,
+canActivate: [AuthGuard]
+},
+{path:'admin',component:AdminhomeComponent,
+canActivate: [AuthGuard]
+},
+{path:'student', component:StudenthomeComponent,
+canActivate: [AuthGuard]
+},
+{path:'prstudent', component:PrStudenthomeComponent,
+canActivate: [AuthGuard]
+},
+{path:'prfaculty',component:PrFacultyhomeComponent,
+canActivate: [AuthGuard]
+},
+{path:'hod', component:HodhomeComponent,
+canActivate: [AuthGuard]
+
+
+},
 
 
 
@@ -61,15 +80,20 @@ const routes: Routes = [{path:'', component:HomeComponent},
 {path: 'dutyleave', component:DutyleaveComponent},
 {path: 'offerletter', component:OfferletterComponent},
 {path: 'revaluation',component:RevaluationComponent},
+{path: 'noticeupdate/:id', component:NoticeupdateComponent},
+{path: 'updateplaceddetails', component:UpdatePlacedDetailsComponent},
+
+
 
 
 {path: 'adminlogin', component:AdminloginComponent},
 {path: 'prfaclogin', component:PrfacloginComponent},
 {path: 'prstudlogin', component:PrstudloginComponent},
 {path: 'hodlogin', component:HodloginComponent},
-{path: 'studlogin', component:StudloginComponent}
+{path: 'studlogin', component:StudloginComponent},
 
 
+{path: 'register', component:SignupComponent},
 
 
 ];
@@ -77,6 +101,7 @@ const routes: Routes = [{path:'', component:HomeComponent},
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [AuthGuard]
 })
 export class AppRoutingModule { }

@@ -5,12 +5,12 @@
   
   .containerr .btn {
     position: absolute;
-    top: 80%;
-    left: 50%;
+    top: 20%;
+    left: 95%;
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
-    background-color: #425664;
-    color: white;
+    background-color: white;
+    color: black;
     font-size: 16px;
     padding: 12px 24px;
     border: none;
@@ -19,7 +19,7 @@
   }
   
   .containerr .btn:hover {
-    background-color: #5c798d;
+    background-color: whitesmoke;
   }
   
   

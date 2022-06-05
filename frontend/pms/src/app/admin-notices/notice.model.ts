@@ -1,6 +1,6 @@
 export class NoticeModel{
     constructor(
-        // public _id: String, 
+        public _id: String, 
        public company : string,
        public title: string,
     public disc : string,

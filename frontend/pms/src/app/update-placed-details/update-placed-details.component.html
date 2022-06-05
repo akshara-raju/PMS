@@ -1,0 +1,92 @@
+
+<div id="masthead">  
+    <!-- /cont -->
+  <div class="container container-body">
+    <div class="row">
+      
+      <div class="col-md-12"> 
+        
+        <div class="panel">
+          <div class="panel-body">
+            
+            
+            <div class="brand-title">Update Details</div>
+            <!--/stories-->
+            <div  class="inputs">
+     
+                <form (ngSubmit)="editStatus()"
+                ngForm
+                #f="ngForm"
+                  >
+                  <br>
+                  
+                  <div class="form-group">
+                    <input type="text" class="form-control" name="company"  placeholder="company" [(ngModel)]="statusDetails.company" required >
+                    <label  id="error1"></label>
+
+                    
+                </div>
+
+                <div class="form-group">
+                    <!-- <input type="text" class="form-control" name="company"  placeholder="Company name"  > -->
+                    <input type="text" class="form-control"  name="title" placeholder="title" [(ngModel)]="statusDetails.title" required>
+                    <label  id="error2"></label>
+
+                    
+                </div>
+                 
+                
+
+
+              
+                 
+              
+
+                
+
+                
+
+
+                  
+
+                 
+
+                 
+
+
+                  
+                  
+  
+  
+                
+                 <!-- <div class="form-group">
+                   
+                    <input type="text"  class="form-control" name="ctc" placeholder="CTC" >
+                    <label  id="error4"></label>
+                    
+                   </div> -->
+                  
+                  <label id="check"></label>
+                  <h1></h1>
+                  <button type="submit" [disabled]="!f.valid" class="btn btn-block" value="submit">UPDATE</button>
+                  
+        
+                  
+                </form>
+                <hr>
+        
+                
+        
+          </div>  
+           
+            <!--/stories-->
+            
+          </div>
+        </div>
+                                                      
+         </div><!--/col-12-->
+    </div>
+  </div>
+
+
+  <!-- next -->

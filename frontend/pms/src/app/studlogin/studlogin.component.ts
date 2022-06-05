@@ -1,37 +1,88 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../service/auth.service';
+import { Router } from '@angular/router';
+
+
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+
+
+
+
+
 
 @Component({
   selector: 'app-studlogin',
   templateUrl: './studlogin.component.html',
-  styleUrls: ['./studlogin.component.css']
+  styleUrls: ['./studlogin.component.css'],
+ 
 })
 export class StudloginComponent implements OnInit {
 
-  constructor() { }
+
+
+
+
+
+  // messageclass = ''
+  // message = ''
+  // Customerid: any;
+  // editdata: any;
+  // responsedata: any;
+
+  constructor(private service:AuthService, private  route:Router) {
+
+
+
+
+
+
+  }
+
+
+
+  // Login = new FormGroup({
+  //   username: new FormControl("", Validators.required),
+  //   password: new FormControl("", Validators.required)
+  // });
+
+
 
   ngOnInit(): void {
   }
-  User={ username:'',
-  password:''};
-
-   userFunction()
-   {
-    
-    if(this.User.username=='student' && this.User.password=='student'  )
-    {
-
-      
-      alert("Success!");
-    
-    }
-
-    else
-    {
-      alert("Fail!");
-    }
-      
-  }
+ 
    
+  ProceedLogin(){}
+
+  // ProceedLogin()
+  //  {
+    
+  //   if (this.Login.valid) {
+
+  //     this.service.ProceedLogin(this.Login.value).subscribe(result => {
+  //       if(result!=null){
+  //         this.responsedata=result;
+  //         localStorage.setItem('token',this.responsedata.jwtToken)
+  //         this.route.navigate([''])
+  //       }
+
+  //     });
+
+
+  //   }
+      
+  // }
+   
+  studlogin()
+  {
+    // this.noticeService.newNotice(this.addnotice).subscribe((data)=>{
+    //   console.log('data');
+      
+    // })
+
+
+  //   if(this.username==){
+  //   this.route.navigate(['/studenthome']);}
+  }
 
 
 

@@ -3,20 +3,56 @@
     <div class="text-center mt-4 name"> SJCET </div>
 
 
-    <form class="p-3 mt-3" #userLogin="ngForm" (ngSubmit)="userFunction()" >
+    <form class="p-3 mt-3"  (ngSubmit)="ProceedLogin()" 
+    ngForm
+    #Login="ngForm"
+    >
 
         <!-- (ngSubmit)="userFunction()" -->
-        <div class="form-field d-flex align-items-center form-group"> 
-           <input class="form-control" type="text" name="username" id="userName" placeholder="Username" [(ngModel)]="User.username" required> 
-           <label for="userName"  id="error1"></label>
-        </div>
-        
-        <div class="form-field d-flex align-items-center form-group"> 
-           <input class="form-control" type="password" name="password" id="pwd" placeholder="Password" [(ngModel)]="User.password" required> 
-           <label for="password"  id="error2"></label>
-        </div> 
-           
-           <button class="btn mt-3"  style="background-color: #425664;"  >Login</button>
+        <div class="form-field d-flex align-items-center">  
+         <input type="text" 
+                
+                ngModel
+                #username="ngModel"
+          
+                name="username" 
+                id="username" 
+                placeholder="username" 
+                class="input-control"
+                required> 
+      </div>
+     
+    <div *ngIf="username.touched && !username.valid" class="error-msgs">
+         Required.
+    </div>
+
+
+
+
+     <div class="form-field d-flex align-items-center">  
+         <input type="password"
+         
+                ngModel
+                #password="ngModel"
+                
+                
+                name="password" 
+                id="password" 
+                placeholder="password" 
+                class="input-control"
+                required
+                > 
+     </div> 
+     
+     <div *ngIf="(password.touched && !password.valid)" class="error-msgs">
+         Required.
+    </div>
+
+
+
+
+
+    <button type="submit" [disabled]="!Login.valid" (click)="studlogin()"class="btn mt-3" style="background-color: #425664;">Login</button>
     </form>
 </div>
 

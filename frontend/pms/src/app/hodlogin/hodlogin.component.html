@@ -1,0 +1,60 @@
+<div class="wrapper">
+    <div class="logo"> <img src="./assets/img/logo.png" alt=""> </div>
+    <div class="text-center mt-4 name"> SJCET </div>
+
+
+    <form class="p-3 mt-3" #userLogin="ngForm" (ngSubmit)="userFunction()" 
+    ngForm
+    #f="ngForm"
+    >
+
+        <!-- (ngSubmit)="userFunction()" -->
+        <div class="form-field d-flex align-items-center">  
+         <input type="text" 
+                
+                ngModel
+                #username="ngModel"
+          
+                name="userName" 
+                id="userName" 
+                placeholder="Username" 
+                class="input-control"
+                required> 
+     </div>
+     
+    <div *ngIf="username.touched && !username.valid" class="error-msgs">
+         Required.
+    </div>
+
+
+
+
+     <div class="form-field d-flex align-items-center">  
+         <input type="password"
+         
+                ngModel
+                #password="ngModel"
+                
+                
+                name="password" 
+                id="pwd" 
+                placeholder="Password" 
+                class="input-control"
+                required
+                > 
+     </div> 
+     
+     <div *ngIf="(password.touched && !password.valid)" class="error-msgs">
+         Required.
+    </div>
+
+
+
+
+
+    <button type="submit" [disabled]="!f.valid" class="btn mt-3" style="background-color: #425664;">Login</button>
+    </form>
+</div>
+
+
+<!-- [diasabled]="userLogin.form.invalid" -->

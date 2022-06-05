@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+// import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpResponse, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -20,9 +21,20 @@ export class NoticeService {
     .subscribe(data =>{console.log(data)})
   }
 
-  updatenotice(notice:any){
-    return this.http.put("http://localhost:3000/updatenotice",notice)
-    .subscribe(data =>{console.log(data)})
+  updateNotice(id:any){
+    return this.http.get("http://localhost:3000/noticeupdate/"+id,{})
+    
+  }
+
+  deletenotice(id:any)
+  {
+    return this.http.delete("http://localhost:3000/remove/"+id)
+
+  }
+  updtNotice(id:any,notice:any){
+    return this.http.put("http://localhost:3000/noticeupdate/"+id,notice)
+
+
   }
 
   

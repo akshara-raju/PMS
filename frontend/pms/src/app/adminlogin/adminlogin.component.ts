@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TrialService } from '../trial.service';
 
 @Component({
   selector: 'app-adminlogin',
@@ -7,45 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminloginComponent implements OnInit {
 
-  constructor() { }
+  constructor(private util:TrialService){}
 
-  
+    TestHere() {
+    //access service function
+        this.util.trial1();
+    }
 
- 
   ngOnInit(): void {
-
-    // userFunction(
-    //   alert("Success")
-    // )
-  
   }
 
- 
-  User={ username:'',
-  password:''};
-
-   userFunction()
-   {
-    
-    if(this.User.username=='admin' && this.User.password=='admin'  )
-    {
-
-      
-      alert("Success!");
-    
-    }
-
-    else
-    {
-      alert("Fail!");
-    }
-      
-  }
-   
 
 
 
 
   
+
+
 
 }

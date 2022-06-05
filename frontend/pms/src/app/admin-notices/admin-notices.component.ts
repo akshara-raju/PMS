@@ -11,6 +11,7 @@ import { ActivatedRoute,Router } from '@angular/router';
 export class AdminNoticesComponent implements OnInit {
   // httpdata;
   notices = [{
+    _id :"",
     company : "",
     title:"",
     disc : "",
@@ -28,7 +29,7 @@ export class AdminNoticesComponent implements OnInit {
   constructor(private noticeService: NoticeService,private router:Router) { }
 
   ngOnInit(): void {
-    let noticeId = localStorage.getItem('noticeupdateId');
+    // let noticeId = localStorage.getItem('noticeupdateId');
     
     this.noticeService.getNotices().subscribe((data)=>{
       this.notices=JSON.parse(JSON.stringify(data));
@@ -41,7 +42,15 @@ export class AdminNoticesComponent implements OnInit {
 
   updatenotice(notice:any){
     localStorage.setItem("noticeupdateId", notice._id.toString());
-    this.router.navigate(['noticeupdate'])
+    this.router.navigate(['noticeupdate']);
+  }
+
+  deletenotice(notice:any)
+  {
+    this.noticeService.deletenotice(notice._id)
+    .subscribe((data) => {
+      this.notices = this.notices.filter(p => p !== notice);
+    })
   }
   
 

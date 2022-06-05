@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TrialService } from '../trial.service';
 
 @Component({
   selector: 'app-adminhome',
@@ -7,7 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminhomeComponent implements OnInit {
 
-  constructor() { }
+    //inject service into the component
+    constructor(private util:TrialService){}
+
+    TestHere() {
+    //access service function
+        this.util.trial2();
+    }
+
+  
 
   ngOnInit(): void {
   }

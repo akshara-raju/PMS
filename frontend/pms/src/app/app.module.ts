@@ -2,6 +2,12 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
+
+import { RouterModule } from '@angular/router';
+//import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 
 
 
@@ -38,8 +44,21 @@ import { CommonloginComponent } from './commonlogin/commonlogin.component';
 import { DutyleaveComponent } from './dutyleave/dutyleave.component';
 import { OfferletterComponent } from './offerletter/offerletter.component';
 import { RevaluationComponent } from './revaluation/revaluation.component';
+import { UpdatePlacedDetailsComponent } from './update-placed-details/update-placed-details.component';
+import { SignupComponent } from './signup/signup.component';
+
+
+
+//routes
+import { appRoutes } from './routes';
+
+
+
+import { TrialService } from './trial.service';
 
 @NgModule({
+
+
   declarations: [
     AppComponent,
     HeaderComponent,
@@ -72,17 +91,31 @@ import { RevaluationComponent } from './revaluation/revaluation.component';
     CommonloginComponent,
     DutyleaveComponent,
     OfferletterComponent,
-    RevaluationComponent
+    RevaluationComponent,
+    UpdatePlacedDetailsComponent,
+    SignupComponent
   ],
+
+
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    ReactiveFormsModule,
+    RouterModule.forRoot(appRoutes),
+    Ng2SearchPipeModule
+    // NgMultiSelectDropDownModule.forRoot()
    
     
   ],
-  providers: [],
+
+  providers: [TrialService], //FOR GLOBAL SERVICE
+  
+  
   bootstrap: [AppComponent]
+
+
 })
+
 export class AppModule { }
