@@ -20,38 +20,38 @@
               ngForm
               #f="ngForm" -->
      
-              <form  
+              <form  (ngSubmit)="upnotice()"
               ngForm
-              #f="ngForm" [formGroup]="noticeUpdated"
+              #f="ngForm" 
               >
 
 
                   <br>
                   <div class="form-group">
-                      <input type="text" class="form-control" formControlName="company"     required>
+                      <input type="text" class="form-control" name="company" [(ngModel)]="noticeUpdated.company"     required>
                       <label  id="error1"></label>
                   </div>
                   
                   
                   <div class="form-group">
-                     <input type="text"  class="form-control" formControlName="title"   required>
+                     <input type="text"  class="form-control" name="title" [(ngModel)]="noticeUpdated.title"    required>
                      <label  id="error4"></label>
                      
                   </div>
                   
   
                  <div class="form-group">
-                  <input type="text"  class="form-control" formControlName="disc"   style="padding-right: 10%; padding-bottom: 10%;padding-top: 1.5%;"  required>
+                  <input type="text"  class="form-control" name="disc" [(ngModel)]="noticeUpdated.disc"  style="padding-right: 10%; padding-bottom: 10%;padding-top: 1.5%;"  required>
                   <label  id="error4"></label>
                   
                </div>
                <div class="form-group">
                  <label for="eligibility" col-xs-3 col-sm-2 control-label>Eligibility*</label>
-                <input type="text" style="width: 20%; float: left; margin: 10px;"  class="form-control" formControlName="xth"   required  pattern="^\d+(\.\d+)*$" >
-                <input type="text" style="width: 20%; float: left; margin: 10px;"  class="form-control" formControlName="xiith"   required  pattern="^\d+(\.\d+)*$"  >
-                <input type="text" style="width: 25%; float: left; margin: 10px;"  class="form-control" formControlName="gpa"  required  pattern="^\d+(\.\d+)*$"  >
+                <input type="text" style="width: 20%; float: left; margin: 10px;"  class="form-control" [(ngModel)]="noticeUpdated.xth" name="xth"   required  pattern="^\d+(\.\d+)*$" >
+                <input type="text" style="width: 20%; float: left; margin: 10px;"  class="form-control" name="xiith" [(ngModel)]="noticeUpdated.xiith"   required  pattern="^\d+(\.\d+)*$"  >
+                <input type="text" style="width: 25%; float: left; margin: 10px;"  class="form-control" name="gpa" [(ngModel)]="noticeUpdated.gpa"  required  pattern="^\d+(\.\d+)*$"  >
 
-                <input type="text" style="width: 25%; float: left; margin: 10px;"  class="form-control" formControlName="qual"  required >
+                <input type="text" style="width: 25%; float: left; margin: 10px;"  class="form-control" name="qual" [(ngModel)]="noticeUpdated.qual"  required >
 
 
                 <label  id="error4"></label>
@@ -60,19 +60,19 @@
   
                  <div class="form-group">
                    
-                  <input type="date"  class="form-control" formControlName="deadline"   required >
+                  <input type="date"  class="form-control" name="deadline"  [(ngModel)]="noticeUpdated.deadline"  required >
                   <label  id="error4"></label>
                   
                  </div>
                  <div class="form-group">
                    
-                    <input type="text"  class="form-control" formControlName="ctc"   required pattern="^\d+(\.\d+)*$">
+                    <input type="text"  class="form-control" name="ctc" [(ngModel)]="noticeUpdated.ctc"  required pattern="^\d+(\.\d+)*$">
                     <label  id="error4"></label>
                     
                    </div>
                    <div class="form-group">
                    
-                    <input type="text"  class="form-control" formControlName="link"   required>
+                    <input type="text"  class="form-control" name="link" [(ngModel)]="noticeUpdated.link"  required>
                     <label  id="error4"></label>
                     
                    </div>
@@ -81,7 +81,7 @@
                   <h1></h1>
 
 
-                  <button type="submit" [disabled]="!f.valid" class="btn btn-block" value="submit" (click)="onSubmit()"   >UPDATE</button>
+                  <button type="submit"  [disabled]="!f.valid" class="btn btn-block" value="submit"    >UPDATE</button>
                   
         
                   

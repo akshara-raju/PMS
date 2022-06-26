@@ -2,6 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../service/auth.service';
 import { Router } from '@angular/router';
 
+import { Reggg } from '../reggg.model';
+import { NoticeService } from '../notice.service';
+import { ActivatedRoute } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+
 
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
@@ -19,76 +24,40 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class StudloginComponent implements OnInit {
 
 
+  reg={
+    uname :'',
+    password:''
 
+}
 
-
-
-  // messageclass = ''
-  // message = ''
-  // Customerid: any;
-  // editdata: any;
-  // responsedata: any;
-
-  constructor(private service:AuthService, private  route:Router) {
-
-
-
-
-
-
-  }
-
-
-
-  // Login = new FormGroup({
-  //   username: new FormControl("", Validators.required),
-  //   password: new FormControl("", Validators.required)
-  // });
-
-
-
-  ngOnInit(): void {
-  }
- 
-   
-  ProceedLogin(){}
-
-  // ProceedLogin()
-  //  {
-    
-  //   if (this.Login.valid) {
-
-  //     this.service.ProceedLogin(this.Login.value).subscribe(result => {
-  //       if(result!=null){
-  //         this.responsedata=result;
-  //         localStorage.setItem('token',this.responsedata.jwtToken)
-  //         this.route.navigate([''])
-  //       }
-
-  //     });
-
-
-  //   }
-      
-  // }
-   
-  studlogin()
-  {
-    // this.noticeService.newNotice(this.addnotice).subscribe((data)=>{
-    //   console.log('data');
-      
-    // })
-
-
-  //   if(this.username==){
-  //   this.route.navigate(['/studenthome']);}
-  }
-
-
-
-
+title:string = 'register';
   
 
+  constructor( private router: Router) { }
+  ngOnInit(): void {
+    
+  }
 
+
+  Reg()
+  {
+    
+    if( (this.reg.uname=="stud1" &&  this.reg.password=="stud1") || (this.reg.uname=="stud2" &&  this.reg.password=="stud2") || (this.reg.uname=="stud3" &&  this.reg.password=="stud3") ){
+    // this.reggService.userReg(this.reg);
+    alert("Success!");
+    this.router.navigate(['/student']);
+  
+  }
+
+  else{
+    alert("Invalid Credentials!");
+    this.router.navigate(['/studlogin']);
+  }
+
+
+
+
+
+  }
 
 }

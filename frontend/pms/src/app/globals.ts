@@ -7,4 +7,4 @@
 // export const version: string="22.2.2";   
 
 
-// export var noo: number;
+export var noo=0;

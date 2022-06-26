@@ -35,7 +35,16 @@ title:string = 'Add Notices';
     //   console.log('data');
       
     // })
+
+
+
+    
+
+
+
+
     this.noticeService.newNotice(this.addnotice);
+    this.noticeService.sendMail();
     this.router.navigate(['/adminnotice']);
   }
 

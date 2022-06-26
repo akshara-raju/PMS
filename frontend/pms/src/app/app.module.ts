@@ -5,7 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
-
+// import { Router } from '@angular/router';
 import { RouterModule } from '@angular/router';
 //import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 
@@ -55,6 +55,7 @@ import { appRoutes } from './routes';
 
 
 import { TrialService } from './trial.service';
+import { HlComponent } from './hl/hl.component';
 
 @NgModule({
 
@@ -93,7 +94,8 @@ import { TrialService } from './trial.service';
     OfferletterComponent,
     RevaluationComponent,
     UpdatePlacedDetailsComponent,
-    SignupComponent
+    SignupComponent,
+    HlComponent
   ],
 
 
@@ -104,7 +106,8 @@ import { TrialService } from './trial.service';
     HttpClientModule,
     ReactiveFormsModule,
     RouterModule.forRoot(appRoutes),
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    // Router
     // NgMultiSelectDropDownModule.forRoot()
    
     

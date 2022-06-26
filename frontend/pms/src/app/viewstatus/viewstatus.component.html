@@ -1,187 +1,70 @@
-<div id="masthead">  
-  <!-- /cont -->
-<div class="container container-body">
-  <div class="row">
-    
-    <div class="col-md-12"> 
-      
-      <div class="panel">
-        <div class="panel-body">
-          
-          
-          <div class="brand-title">View Placement Status</div>
-          <!--/stories-->
-          <div  class="inputs">
-   
-              <form enctype="multipart/form-data" 
-              
-              ngForm
-              #f="ngForm"
-               >
-                <br>
-                <div class="form-group">
-                    <!-- <input type="text" class="form-control" name="company"  placeholder="Company name"  > -->
-                    <label  id="error1"></label>
+<form action="/action_page.php">
+  <input type="search" id="gsearch" [(ngModel)]="searchText" class="search" name="gsearch" placeholder="Search">
+ 
+  <!-- <a href="" class="btn fa fa-search" style="font-size:x-large;"></a> -->
+</form>
 
-                    <select 
-                    ngModel
-                    
-                    name="branch" 
-                    id="branch" 
-                    placeholder="branch" 
-                    class="input-control"
-                    required
-                    > 
-                      <option placeholder="Branch" value="">--Branch--</option>
-                      <option>Artificial Intelligence & Data Science</option>
-                      <option>Civil Engineering</option>
-                      <option>Computer Science & Engineering</option>
-                      <option>Electronics and Communication Engineering</option>
-                      <option>Electronics and Instrumentation Engineering</option>
-                      <option>Electrical and Electronics Engineering</option>
-                      <option>Mechanical Engineering</option>
-                      <option>Master of Computer Application</option>
-                    </select>
-                </div>
+  
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="container">
+<div class="row">
+    <div class="col-lg-12">
+        <div class="main-box clearfix">
+            <div class="table-responsive">
+                <table class="table user-list">
+                    <thead>
+                        <tr>
+                            <th><span>Admission No</span></th>
+                            <th><span>Name</span></th>
+                            <th class="text-center"><span>Phone No</span></th>
+                            <th><span>Mail Id</span></th>
+                            <th><span>Company </span></th>
+                            <th><span>Job Title </span></th>
 
-                <div class="form-group">
-                  <!-- <input type="text" class="form-control" name="company"  placeholder="Company name"  > -->
-                  <label  id="error2"></label>
 
-                  <select 
-                    ngModel
-                    name="company" 
-                    id="company" 
-                    placeholder="company" 
-                    class="input-control"
-                    required
-                    > 
-                    <option placeholder="Company" value="">--Company--</option>
-                    <!-- <option>--Company--</option> -->
-                    <option>TCS</option>
-                    <option>Infosys</option>
-                    <option>Wipro</option>
-                    <option>UST</option>
-                    <option>Quest Global</option>
-                    <option>Othrs</option>
-                  </select>
-              </div>
 
-              <div class="form-group">
-                <!-- <input type="text" class="form-control" name="company"  placeholder="Company name"  > -->
-                <label  id="error3"></label>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let status of Status | filter:searchText">
+                            <td>
+                               {{status.admNo}}
+                            </td>
+                            <td>
+                                {{status.studName}}
+                            </td>
+                            <td >
+                                {{status.phone}}
+                            </td>
+                            <td>
+                              {{status.mail}}
 
-                <select 
-                    ngModel
-                    name="year" 
-                    id="year" 
-                    placeholder="year" 
-                    class="input-control"
-                    required
-                    > 
-                  <option placeholder="year" value="">--Year of Passing--</option>
-                  <option>2022</option>
-                  <option>2021</option>
-                  <option>2020</option>
-                  <option>2019</option>
-                  <option>2018</option>
-                  <option>2017</option>
-                </select>
+                            </td>
+                                
+                            <td>{{status.company}} </td>
+                            <td>{{status.title}} </td>
+                            
+                            <td>
+                                <!-- <a href="/noticeupdate" class="table-link">
+                                <span class="fa-stack">
+                                    <i class="fa fa-square fa-stack-2x"></i>
+                                    <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>  -->
+                            <!-- <button class="btn btn-warning fa fa-inverse fa-pencil" (click)="editStatus(status)" ></button> -->
+                          </td>
+                            
+                        </tr>
+                        
+
+                       
+                        <!--  -->
+                    </tbody>
+                </table>
             </div>
-                
-                
-                
-
-
-              
-               <!-- <div class="form-group">
-                 
-                  <input type="text"  class="form-control" name="ctc" placeholder="CTC" >
-                  <label  id="error4"></label>
-                  
-                 </div> -->
-                
-                <label id="check"></label>
-                <h1></h1>
-                <button type="submit" [disabled]="!f.valid" class="btn btn-block" value="submit">SEARCH</button>
-                
-      
-                
-              </form>
-              <hr>
-      
-              <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-              <div class="container">
-              <div class="row">
-                  <div class="col-lg-12">
-                      <div class="main-box clearfix">
-                          <div class="table-responsive">
-                              <table class="table user-list">
-                                  <thead>
-                                      <tr  >
-                                          <th><span>Admission No</span></th>
-                                          <th><span>Name</span></th>
-                                          <th class="text-center"><span>Phone No</span></th>
-                                          <th><span>Mail Id</span></th>
-                                          <th><span>Company </span></th>
-                                          <th><span>Job Title </span></th>
             
-            
-            
-                                          <!-- <th>&nbsp;</th> -->
-                                      </tr>
-                                  </thead>
-                                  <tbody>
-                                      <tr *ngFor="let status of Status">
-                                          <td>
-                                            {{status.admNo}}
-                                          </td>
-                                          <td>
-                                            {{status.studName}}
-                                          </td>
-                                          <td >
-                                            {{status.phone}}
-                                          </td>
-                                          <td>
-                                            {{status.mail}}
-            
-                                          </td>
-                                              
-                                          <td>{{status.company}} </td>
-                                          <td>{{status.title}}</td>
-                                          
-                                          <td>
-                                              <!-- <a href="/noticeupdate" class="table-link">
-                                              <span class="fa-stack">
-                                                  <i class="fa fa-square fa-stack-2x"></i>
-                                                  <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
-                                              </span>
-                                          </a>  -->
-                                          <!-- <button class="btn btn-warning fa fa-inverse fa-pencil"  ></button> -->
-                                        </td>
-                                          
-                                      </tr>
-                                      
-              
-                                     
-                                      <!--  -->
-                                  </tbody>
-                              </table>
-                          </div>
-                          
-                      </div>
-                  </div>
-              </div>
-              </div>
-              
-
-<!-- next -->
-
-
-
-
-
-
-
-
-
+        </div>
+    </div>
+</div>
+</div>

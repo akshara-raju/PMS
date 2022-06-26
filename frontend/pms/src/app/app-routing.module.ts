@@ -68,19 +68,20 @@ canActivate: [AuthGuard]
 {path:'addnotice',component:AddnoticeComponent},
 {path:'updatestatus', component:UpdatestatusComponent},
 {path:'adminnotice',component:AdminNoticesComponent},
-{path:'noticeupdate', component:NoticeupdateComponent},
+// {path:'noticeupdate', component:NoticeupdateComponent},
 {path:'markattendance', component:MarkattendanceComponent},
 {path:'downloadattendance', component:DownloadattendenceComponent},
 {path:'studupdate', component:StudupdateComponent},
 {path:'transportation', component:TransportationComponent},
 {path:'studdrivenotices', component:StuddrivenoticesComponent},
+
 {path:'prstudnotice', component:PrstudnoticeComponent},
 {path: 'prfacverification' , component:PrfacverificationComponent},
 {path: 'commonlogin', component:CommonloginComponent},
 {path: 'dutyleave', component:DutyleaveComponent},
 {path: 'offerletter', component:OfferletterComponent},
 {path: 'revaluation',component:RevaluationComponent},
-{path: 'noticeupdate/:id', component:NoticeupdateComponent},
+{path: 'noticeupdate', component:NoticeupdateComponent},
 {path: 'updateplaceddetails', component:UpdatePlacedDetailsComponent},
 
 

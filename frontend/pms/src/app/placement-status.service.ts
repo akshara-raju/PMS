@@ -13,7 +13,7 @@ export class PlacementStatusService {
   }
 
   editStatus(Status:any){
-    return this.http.put("http://localhost:3000/updateplaceddetails", Status)
+    return this.http.put("http://localhost:3000/update", Status)
     .subscribe(data =>{console.log(data)})
   }
 

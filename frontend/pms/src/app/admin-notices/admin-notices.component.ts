@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-// import { NoticeModel } from './notice.model';
+import { NoticeModel } from './notice.model';
 import { NoticeService } from '../notice.service';
 import { ActivatedRoute,Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-admin-notices',
@@ -9,9 +10,8 @@ import { ActivatedRoute,Router } from '@angular/router';
   styleUrls: ['./admin-notices.component.css']
 })
 export class AdminNoticesComponent implements OnInit {
-  // httpdata;
-  notices = [{
-    _id :"",
+  notices=[{
+    
     company : "",
     title:"",
     disc : "",
@@ -23,28 +23,27 @@ export class AdminNoticesComponent implements OnInit {
     ctc : "",
     link : ""
 
-}
-] 
+}]
 
-  constructor(private noticeService: NoticeService,private router:Router) { }
+
+  constructor(private noticeService: NoticeService,private router:Router, public http:HttpClient) { }
 
   ngOnInit(): void {
-    // let noticeId = localStorage.getItem('noticeupdateId');
-    
-    this.noticeService.getNotices().subscribe((data)=>{
+    let noticeId = localStorage.getItem('noticeupdateId');
+    this.noticeService.getNotices().subscribe((data:any)=>{
       this.notices=JSON.parse(JSON.stringify(data));
-    //   this.http.get("http://localhost:3000/noticeupdate")
-    // .subscribe((noticeServices)=>{
-    //   this.httpdata=noticeServices;
-    //   console.log(this.httpdata)})
     })
   }
 
-  updatenotice(notice:any){
-    localStorage.setItem("noticeupdateId", notice._id.toString());
-    this.router.navigate(['noticeupdate']);
-  }
+  // updatenotice(notice:any){
+  //   localStorage.setItem("noticeupdateId", notice._id.toString());
+  //   this.router.navigate(['noticeupdate']);
+  // }
+  editNotice(Notice:any){
+    localStorage.setItem("NoticeId", Notice._id.toString());
+    this.router.navigate(['/noticeupdate']);
 
+  }
   deletenotice(notice:any)
   {
     this.noticeService.deletenotice(notice._id)

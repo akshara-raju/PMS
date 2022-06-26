@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-prfaclogin',
@@ -7,31 +8,40 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PrfacloginComponent implements OnInit {
 
-  constructor() { }
+  reg={
+    uname :'',
+    password:''
 
+}
+
+title:string = 'register';
+  
+
+  constructor( private router: Router) { }
   ngOnInit(): void {
-  }
-  User={ username:'',
-  password:''};
-
-   userFunction()
-   {
     
-    if(this.User.username=='prfaculty' && this.User.password=='prfaculty'  )
-    {
-
-      
-      alert("Success!");
-    
-    }
-
-    else
-    {
-      alert("Fail!");
-    }
-      
   }
-   
 
+
+  Reg()
+  {
+    
+    if( (this.reg.uname=="pf1" &&  this.reg.password=="pf1") || (this.reg.uname=="pf2" &&  this.reg.password=="pf2") || (this.reg.uname=="pf3" &&  this.reg.password=="pf3") ){
+    // this.reggService.userReg(this.reg);
+    alert("Success!");
+    this.router.navigate(['/prfaculty']);
+  
+  }
+
+  else{
+    alert("Invalid Credentials!");
+    this.router.navigate(['/prfaclogin']);
+  }
+
+
+
+
+
+  }
 
 }

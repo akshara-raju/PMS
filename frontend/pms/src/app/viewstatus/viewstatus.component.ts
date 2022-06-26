@@ -7,6 +7,7 @@ import { PlacementStatusService } from '../placement-status.service';
   styleUrls: ['./viewstatus.component.css']
 })
 export class ViewstatusComponent implements OnInit {
+  searchText: any;
   Status=[{
     studName :'',
     admNo:'',
