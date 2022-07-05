@@ -29,7 +29,7 @@ title:string = 'register';
   Reg()
   {
     
-    if( (this.reg.uname=="hod1" &&  this.reg.password=="hod1") || (this.reg.uname=="hod2" &&  this.reg.password=="hod2") || (this.reg.uname=="hod3" &&  this.reg.password=="hod3") ){
+    if( (this.reg.uname=="18/hod/01" &&  this.reg.password=="18/hod/01") || (this.reg.uname=="18/hod/02" &&  this.reg.password=="18/hod/02") || (this.reg.uname=="18/hod/03" &&  this.reg.password=="18/hod/03") ){
     // this.reggService.userReg(this.reg);
     alert("Success!");
     // myGlobals.noo=1;

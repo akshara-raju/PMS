@@ -26,7 +26,7 @@ title:string = 'register';
   Reg()
   {
     
-    if( (this.reg.uname=="ps1" &&  this.reg.password=="ps1") || (this.reg.uname=="ps2" &&  this.reg.password=="ps2") || (this.reg.uname=="ps3" &&  this.reg.password=="ps3") ){
+    if( (this.reg.uname=="18/ps/01" &&  this.reg.password=="18/ps/01") || (this.reg.uname=="18/ps/02" &&  this.reg.password=="18/ps/02") || (this.reg.uname=="18/ps/03" &&  this.reg.password=="18/ps/03") ){
     // this.reggService.userReg(this.reg);
     alert("Success!");
     this.router.navigate(['/prstudent']);

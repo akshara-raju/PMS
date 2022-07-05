@@ -1,7 +1,97 @@
-<form action="/action_page.php">
-  <input type="search" id="gsearch" [(ngModel)]="searchText" class="search" name="gsearch" placeholder="Search">
- 
-  <!-- <a href="" class="btn fa fa-search" style="font-size:x-large;"></a> -->
+<form enctype="multipart/form-data" 
+              
+ngForm
+#f="ngForm"
+ >
+  <br>
+  <div class="form-group">
+      <!-- <input type="text" class="form-control" name="company"  placeholder="Company name"  > -->
+      <label  id="error1"></label>
+
+      <select 
+      [(ngModel)]="filterstatus.branch"
+      
+      name="branch" 
+      id="branch" 
+      placeholder="branch" 
+      class="input-control"
+      required
+      > 
+        <option placeholder="Branch" value="">--Branch--</option>
+        <option>Artificial Intelligence & Data Science</option>
+        <option>CE</option>
+        <option>CSE</option>
+        <option>ECE</option>
+        <option>Electronics and Instrumentation Engineering</option>
+        <option>EEE</option>
+        <option>ME</option>
+        <!-- <option>Master of Computer Application</option> -->
+      </select>
+  </div>
+
+  <div class="form-group">
+    <!-- <input type="text" class="form-control" name="company"  placeholder="Company name"  > -->
+    <label  id="error2"></label>
+
+    <select 
+    [(ngModel)]="filterstatus.company"
+      name="company" 
+      id="company" 
+      placeholder="company" 
+      class="input-control"
+      required
+      > 
+      <option placeholder="Company" value="">--Company--</option>
+      <!-- <option>--Company--</option> -->
+      <option>TCS</option>
+      <option>Infosys</option>
+      <option>WIPRO</option>
+      <option>UST</option>
+      <option>Quest</option>
+      <option>Others</option>
+    </select>
+</div>
+
+<div class="form-group">
+  <!-- <input type="text" class="form-control" name="company"  placeholder="Company name"  > -->
+  <label  id="error3"></label>
+
+  <select 
+  [(ngModel)]="filterstatus.year"
+      name="year" 
+      id="year" 
+      placeholder="year" 
+      class="input-control"
+      required
+      > 
+    <option placeholder="year" value="">--Year of Passing--</option>
+    <option>2022</option>
+    <option>2021</option>
+    <option>2020</option>
+    <option>2019</option>
+    <option>2018</option>
+    <option>2017</option>
+  </select>
+</div>
+  
+  
+  
+
+
+
+ <!-- <div class="form-group">
+   
+    <input type="text"  class="form-control" name="ctc" placeholder="CTC" >
+    <label  id="error4"></label>
+    
+   </div> -->
+  
+  <label id="check"></label>
+  <h1></h1>
+  <button type="submit" (click)="filterstud()" [disabled]="!f.valid" class="btn btn-block" value="submit">SEARCH</button>
+  
+
+  
 </form>
 
   
@@ -27,23 +117,23 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let status of Status | filter:searchText">
+                        <tr *ngFor="let filter of filtered">
                             <td>
-                               {{status.admNo}}
+                               {{filter.admNo}}
                             </td>
                             <td>
-                                {{status.studName}}
+                                {{filter.studName}}
                             </td>
                             <td >
-                                {{status.phone}}
+                                {{filter.phone}}
                             </td>
                             <td>
-                              {{status.mail}}
+                              {{filter.mail}}
 
                             </td>
                                 
-                            <td>{{status.company}} </td>
-                            <td>{{status.title}} </td>
+                            <td>{{filter.company}} </td>
+                            <td>{{filter.title}} </td>
                             
                             <td>
                                 <!-- <a href="/noticeupdate" class="table-link">

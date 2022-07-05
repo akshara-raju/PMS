@@ -1,3 +1,6 @@
+
+
+
 <div id="masthead">  
     <!-- /cont -->
   <div class="container container-body">
@@ -20,7 +23,7 @@
                   <br>
                   
                   <div class="form-group">
-                    <input type="text" class="form-control" name="AdmissionNumber"  placeholder=" Admission Number" ngModel required >
+                    <input type="text" class="form-control" name="AdmissionNumber"  placeholder=" Admission Number" [(ngModel)]="addtrans.admissionNo"  required >
                     <label  id="error1"></label>
 
                     
@@ -28,7 +31,7 @@
 
                 <div class="form-group">
                     <!-- <input type="text" class="form-control" name="company"  placeholder="Company name"  > -->
-                    <input type="date" class="form-control" id="date" name="date" ngModel required>
+                    <input type="date" class="form-control" id="date" name="date" [(ngModel)]="addtrans.date"  required>
                     <label  id="error2"></label>
 
                     
@@ -40,7 +43,7 @@
                   <label  id="error5"></label>
 
                   <select 
-                        ngModel
+                  [(ngModel)]="addtrans.company" 
                         name="company" 
                         id="company" 
                         placeholder="company" 
@@ -65,7 +68,7 @@
 
 
                       <select 
-                      ngModel
+                      [(ngModel)]="addtrans.branch" 
                       name="branch" 
                       id="branch" 
                       placeholder="branch" 
@@ -89,7 +92,7 @@
                     <label  id="error7"></label>
   
                     <select 
-                    ngModel
+                    [(ngModel)]="addtrans.section" 
                     name="section" 
                     id="section" 
                     placeholder="section" 
@@ -109,7 +112,7 @@
                     <label  id="error6"></label>
   
                     <select 
-                    ngModel
+                    [(ngModel)]="addtrans.bp" 
                     name="board" 
                     id="board" 
                     placeholder="board" 
@@ -129,19 +132,22 @@
                     <label  id="error7"></label>
 
                     <select 
-                    ngModel
-                    name="year" 
-                    id="year" 
-                    placeholder="year" 
+                    [(ngModel)]="addtrans.sem" 
+                    name="sem" 
+                    id="sem" 
+                    placeholder="sem" 
                     class="input-control"
                     required
               > 
-                      <option placeholder="Year" value="">--Year Of Study--</option>
-                      <option>4th</option>
-                      <option>3rd</option>
-                      <option>2nd</option>
-                      <option>1st</option>
-                      
+                      <option placeholder="sem" value="">Semester</option>
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                      <option>6</option>
+                      <option>7</option>
+                      <option>8</option>
                     </select>
                 </div>
 
@@ -160,7 +166,7 @@
                   
                   <label id="check"></label>
                   <h1></h1>
-                  <button type="submit" [disabled]="!f.valid" class="btn btn-block" value="submit">APPLY</button>
+                  <button type="submit"  [disabled]="!f.valid" (click)="AddTrans()" class="btn btn-block" value="submit">APPLY</button>
                   
         
                   

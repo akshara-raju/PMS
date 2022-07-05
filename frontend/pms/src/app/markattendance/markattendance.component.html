@@ -21,7 +21,7 @@
                 <br>
                 
                 <div class="form-group">
-                  <input type="text" class="form-control" name="AdmissionNumber"  placeholder=" Admission Number"  ngModel required>
+                  <input type="text" class="form-control" name="AdmissionNumber" [(ngModel)]="markattendance.AdmissionNumber"  placeholder=" Admission Number"  ngModel required>
                   <label  id="error1"></label>
 
                   
@@ -29,7 +29,7 @@
 
               <div class="form-group">
                   <!-- <input type="text" class="form-control" name="company"  placeholder="Company name"  > -->
-                  <input type="date" class="form-control" id="date" name="date" ngModel required>
+                  <input type="date" class="form-control" id="date" name="date" [(ngModel)]="markattendance.date" required>
                   <label  id="error2"></label>
 
                   
@@ -37,7 +37,7 @@
                
               <div class="form-group">
                 <label  id="error3">Start Time</label>
-                <input type="time" class="form-control" name="Starttime"  placeholder="Time" ngModel required >
+                <input type="time" class="form-control" name="Starttime"  placeholder="Time" [(ngModel)]="markattendance.Starttime" required >
                 
 
                 
@@ -48,7 +48,7 @@
                
             <div class="form-group">
               <label  id="error4">End Time</label>
-              <input type="time" class="form-control" name="Endtime"  placeholder="Time" ngModel required >
+              <input type="time" class="form-control" name="Endtime"  placeholder="Time" [(ngModel)]="markattendance.Endtime" required >
               
 
               
@@ -60,10 +60,11 @@
             <label  id="error1"></label>
           
             <select 
-                              ngModel
+                              
                               name="branch" 
                               id="branch" 
                               placeholder="branch" 
+                              [(ngModel)]="markattendance.branch"
                               class="input-control"
                               required
                               > 
@@ -91,10 +92,11 @@
           <label  id="error2"></label>
           
           <select 
-                              ngModel
+                              
                               name="company" 
                               id="company" 
                               placeholder="company" 
+                              [(ngModel)]="markattendance.company"
                               class="input-control"
                               required
                               > 
@@ -115,44 +117,44 @@
           
           
           
-          
-          
-          
-          
-          
-          
-          
           <div class="form-group">
-          <!-- <input type="text" class="form-control" name="company"  placeholder="Company name"  > -->
-          <label  id="error3"></label>
-          
-          <select 
-                              ngModel
-                              name="year" 
-                              id="year" 
-                              placeholder="year" 
-                              class="input-control"
-                              required
-                              > 
-          <option placeholder="Year" value="">--Year Of Study--</option>
-          <option value="4th">4th</option>
-          <option value="3rd">3rd</option>
-          <option value="2nd">2nd</option>
-          <option value="1st">1st</option>
-          
-          </select>
-          </div>
-          
+            <!-- <input type="text" class="form-control" name="company"  placeholder="Company name"  > -->
+            <label  id="error8"></label>
+
+
+            <select 
+            [(ngModel)]="markattendance.sem"
+            name="sem" 
+            id="sem" 
+            placeholder="sem" 
+            class="input-control"
+            required
+            
+      > 
+              <option placeholder="sem" value="">--Semester--</option>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+              <option>7</option>
+              <option>8</option>
+              
+            </select>
+        </div>
+
           
           
           <div class="form-group">
                             <!-- <input type="text" class="form-control" name="company"  placeholder="Company name"  > -->
             <label  id="error4"></label>
             <select 
-            ngModel
+            
             name="section" 
             id="section" 
             placeholder="section" 
+            [(ngModel)]="markattendance.section"
             class="input-control"
             required
             > 
@@ -176,7 +178,7 @@
                 
                 <label id="check"></label>
                 <h1></h1>
-                <button type="submit" [disabled]="!f.valid" class="btn btn-block" value="submit">MARK</button>
+                <button type="submit" [disabled]="!f.valid" (click)="attendance()" class="btn btn-block" value="submit">MARK</button>
                 
       
                 

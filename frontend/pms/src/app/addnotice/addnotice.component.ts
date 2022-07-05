@@ -38,11 +38,6 @@ title:string = 'Add Notices';
 
 
 
-    
-
-
-
-
     this.noticeService.newNotice(this.addnotice);
     this.noticeService.sendMail();
     this.router.navigate(['/adminnotice']);

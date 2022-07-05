@@ -22,6 +22,15 @@
       "es2020",
       "dom"
     ],
+
+
+    "typeRoots": [],
+    "types": [] ,
+
+
+
+
+
     "paths": {
       "tslib":["path/to/node_modules/tslib.d.ts"]
     }

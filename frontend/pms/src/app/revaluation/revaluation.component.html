@@ -21,19 +21,12 @@
                   <br>
                   
                   <div class="form-group">
-                    <input type="text" class="form-control" name="AdmissionNumber"  placeholder=" Admission Number" ngModel required  >
+                    <input type="text" class="form-control" name="AdmissionNumber"  placeholder=" Admission Number" [(ngModel)]="verDetails.AdmissionNumber" required  >
                     <label  id="error1"></label>
 
                     
                 </div>
-<!--    
-                <div class="form-group">
-                    <input type="text" class="form-control" name="name"  placeholder=" Name "  >
-                    <label  id="error2"></label>
 
-                    
-                </div>
-                 -->
 
 
               
@@ -46,23 +39,36 @@
                   <label  id="error3"></label>
 
                   <select 
-                    ngModel
-                    name="Subject" 
+                  [(ngModel)]="verDetails.Sem"
+                    name="sem" 
                     id="subject" 
                     placeholder="subject" 
                     class="input-control"
                     required
                     > 
-                    <option placeholder="Company" value="">--Subject--</option>
+                    <option placeholder="Company" value="">--Semester--</option>
                     <!-- <option>--Company--</option> -->
-                    <option>Subject1</option>
-                    <option>Subject2</option>
-                    <option>Subject3</option>
-                    <option>Subject4</option>
-                    <option>Subject5</option>
-                    <option>Subject6</option>
+                    <option>S1</option>
+                    <option>S2</option>
+                    <option>S3</option>
+                    <option>S4</option>
+                    <option>S5</option>
+                    <option>S6</option>
+                    <option>S7</option>
+
+                    <option>S8</option>
+
                   </select>
               </div>
+
+                 
+                <div class="form-group">
+                    <input type="text" class="form-control" [(ngModel)]="verDetails.course" name="course"  placeholder="Course"  >
+                    <label  id="error2"></label>
+
+                    
+                </div>
+                
 
 
                   <div class="form-group">
@@ -70,7 +76,7 @@
                       <label  id="error4"></label>
 
                       <select 
-                      ngModel
+                      [(ngModel)]="verDetails.grade"
                       name="grade" 
                       id="grade" 
                       placeholder="grade" 
@@ -88,6 +94,14 @@
                        
                       </select>
                   </div>
+                     
+                <div class="form-group">
+                    <input type="text" class="form-control" [(ngModel)]="verDetails.gpa" name="gpa"  placeholder="New CGPA"  >
+                    <label  id="error2"></label>
+
+                    
+                </div>
+                
 
                  <!-- <div class="form-group">
                    
@@ -98,7 +112,7 @@
                   
                   <label id="check"></label>
                   <h1></h1>
-                  <button type="submit" [disabled]="!f.valid" class="btn btn-block" value="submit">UPDATE</button>
+                  <button type="submit" [disabled]="!f.valid" (click)="verifyresult()" class="btn btn-block" value="submit">Update</button>
                   
         
                   

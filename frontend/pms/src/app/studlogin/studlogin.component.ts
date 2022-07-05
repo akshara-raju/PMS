@@ -42,7 +42,7 @@ title:string = 'register';
   Reg()
   {
     
-    if( (this.reg.uname=="stud1" &&  this.reg.password=="stud1") || (this.reg.uname=="stud2" &&  this.reg.password=="stud2") || (this.reg.uname=="stud3" &&  this.reg.password=="stud3") ){
+    if( (this.reg.uname=="18/stud/01" &&  this.reg.password=="18/stud/01") || (this.reg.uname=="18/stud/02" &&  this.reg.password=="18/stud/02") || (this.reg.uname=="18/stud/03" &&  this.reg.password=="18/stud/03") ){
     // this.reggService.userReg(this.reg);
     alert("Success!");
     this.router.navigate(['/student']);

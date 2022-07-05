@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { TrialService } from './trial.service';//trial
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

@@ -56,6 +56,9 @@ import { appRoutes } from './routes';
 
 import { TrialService } from './trial.service';
 import { HlComponent } from './hl/hl.component';
+import { ViewdutyComponent } from './viewduty/viewduty.component';
+import { ViewtransportComponent } from './viewtransport/viewtransport.component';
+import { ViewdutyapproveComponent } from './viewdutyapprove/viewdutyapprove.component';
 
 @NgModule({
 
@@ -95,7 +98,10 @@ import { HlComponent } from './hl/hl.component';
     RevaluationComponent,
     UpdatePlacedDetailsComponent,
     SignupComponent,
-    HlComponent
+    HlComponent,
+    ViewdutyComponent,
+    ViewtransportComponent,
+    ViewdutyapproveComponent
   ],
 
 

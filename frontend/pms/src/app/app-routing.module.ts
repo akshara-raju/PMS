@@ -31,8 +31,11 @@ import { RevaluationComponent } from './revaluation/revaluation.component';
 import { OfferletterComponent } from './offerletter/offerletter.component';
 import { UpdatePlacedDetailsComponent } from './update-placed-details/update-placed-details.component';
 import {SignupComponent} from './signup/signup.component';
+import { ViewdutyComponent } from './viewduty/viewduty.component';
+import { ViewtransportComponent } from './viewtransport/viewtransport.component';
 
 import { AuthGuard } from './service/auth.guard';
+import { ViewdutyapproveComponent } from './viewdutyapprove/viewdutyapprove.component';
 
 
 const routes: Routes = [{path:'', component:HomeComponent},
@@ -83,7 +86,9 @@ canActivate: [AuthGuard]
 {path: 'revaluation',component:RevaluationComponent},
 {path: 'noticeupdate', component:NoticeupdateComponent},
 {path: 'updateplaceddetails', component:UpdatePlacedDetailsComponent},
-
+{path: 'viewduty', component:ViewdutyComponent},
+{path: 'viewtransport', component:ViewtransportComponent},
+{path:'viewdutyapproved', component:ViewdutyapproveComponent},
 
 
 

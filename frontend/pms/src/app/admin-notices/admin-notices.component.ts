@@ -50,6 +50,7 @@ export class AdminNoticesComponent implements OnInit {
     .subscribe((data) => {
       this.notices = this.notices.filter(p => p !== notice);
     })
+    alert("Do you want to delete?")
   }
   
 

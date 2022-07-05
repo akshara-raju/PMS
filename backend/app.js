@@ -29,6 +29,13 @@ const CompanyData = require('./src/model/Companydata');
 const PlacementData = require('./src/model/Placementdata');
 const StudentData = require('./src/model/Student');
 const Companydata = require('./src/model/Companydata');
+const Dutydata = require('./src/model/Dutydata');
+const Transportdata = require('./src/model/Transportdata');
+const AttendanceData = require('./src/model/Attendancedata');
+const VerifiedDutyData = require('./src/model/VerifiedLeavedata');
+const { count } = require('./src/model/Companydata');
+const VerifiedDutydata = require('./src/model/VerifiedLeavedata');
+
 // const RegDetail =  require('./models/db');
 
 
@@ -98,8 +105,57 @@ app.get('/status',function(req,res){
     });
 
 });
+// ************display verified duty leave*************
+app.get('/leaves',function(req,res){
+    res.header("Access-Control-Allow-orgin","*")
+    res.header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT,DELETE, OPTIONS')
+    VerifiedDutydata.find()
+    .then(function(statuses){
+        res.send(statuses);
+    });
+
+});
 
 
+
+// ******************
+// display duty leave
+app.get('/dstatus',function(req,res){
+    res.header("Access-Control-Allow-orgin","*")
+    res.header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT,DELETE, OPTIONS')
+    Dutydata.find()
+    .then(function(statuses){
+        res.send(statuses);
+    });
+
+});
+
+
+
+// ******************
+// display transportation
+app.get('/tstatus',function(req,res){
+    res.header("Access-Control-Allow-orgin","*")
+    res.header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT,DELETE, OPTIONS')
+    Transportdata.find()
+    .then(function(statuses){
+        res.send(statuses);
+    });
+
+});
+
+// ******************
+// display mark attendance
+app.get('/getatt',function(req,res){
+    res.header("Access-Control-Allow-orgin","*")
+    res.header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT,DELETE, OPTIONS')
+    AttendanceData.find()
+    .then(function(statuses){
+        res.send(statuses);
+       
+    });
+
+});
 
 
 
@@ -138,59 +194,106 @@ app.get('/status',function(req,res){
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // *****************************************************************
 //mail
-function MailMessagee()
 
-{
-const transporter= mailer.createTransport({
-    service:'outlook',
-    auth: {
-        user:'pmssjcet@outlook.com',
-        pass: '12345@QWq'
-    },
-})
 
-let body= {
-   from:'pmssjcet@outlook.com',
-   to:['theerthasn3@gmail.com','akshraa0002@gmail.com','donaarackal111@gmail.com'],
-    subject: 'New notice published! ',
-    html: '<h2> Apply Soon. </h2> <p></p>'
-}
+function MailMessagee(x, y, z) {
+StudentData.find({ gpa: { $gte: x }, xth : { $gte: y}, 
+    xiith : { $gte:z }  }, (error,data)=>{
+if(error)
+     {
+     console.log(error)
+     }
 
-// // mail part2
-transporter.sendMail(body,(err,result)=>
 
-{
-    if(err){
-        console.log("fail");
+     else
+     {
+    
+    //  console.log(data[0].mail)
+    //  console.log(data)
+      let mailList=[]
+      for (let i = 0; i < data.length; i++) {
+        mailList.push(data[i].mail)
+      }
 
-        return false;
+     
+      
+
+
+      
+
+    const transporter= mailer.createTransport({
+        service:'outlook',
+        auth: {
+            user:'pmssjcet@outlook.com',
+            pass: '12345@QWq'
+        },
+    })
+    
+    let body= {
+       from:'pmssjcet@outlook.com',
+       to:mailList,
+        subject: 'New notice published! ',
+        html: '<h2> Apply Soon. </h2> <p></p>'
     }
-    console.log("success");
-})
+    
+    // // mail part2
+    transporter.sendMail(body,(err,result)=>
+    
+    {
+        if(err){
+            console.log(err);
+    
+            return false;
+        }
+        console.log("mail sent");
+    })
+
+      
+      
+      
 
 
-// // //mail
-// app.get('/maill',function(req,res)
-// {
+
 
     
-//   transporter.sendMail(body,(err,result)=>
+      
+     }
+    })
+    
+}
 
-// {
-//     if(err){
-//         console.log(err);
 
-//         return false;
-//     }
-//     console.log(result);
-// })
-
-// }
-// );
-
-};
 
 
 //----------------------------------------------------------------------
@@ -223,8 +326,86 @@ app.route('/:id').get((req,res)=>{
 
 
 
+//*******************add transportation **************
+app.post('/addtrans' , function(req, res){
+    const trans= new Transportdata({
+        admissionNo:req.body.data.admissionNo,
+        date:req.body.data.date,
+        company:req.body.data.company,
+        branch:req.body.data.branch,
+        section:req.body.data.section,
+        bp:req.body.data.bp,
+        sem:req.body.data.sem
 
-// add notice
+    })
+
+    trans.save();
+    //MailMessagee();
+    console.log('saved')
+});
+
+
+
+
+
+
+//*******************add duty  **************
+app.post('/addduty' , function(req, res){
+    const duty= new Dutydata({
+        admissionNo:req.body.data.admissionNo,
+        date:req.body.data.date,
+        stime:req.body.data.stime,
+        etime:req.body.data.etime,
+        company:req.body.data.company,
+        branch:req.body.data.branch,
+        section:req.body.data.section,
+        sem:req.body.data.sem
+
+    })
+
+    duty.save();
+    //MailMessagee();
+    console.log('saved')
+});
+
+// *********************duty verification**************************
+
+app.post('/verifyleave' , function(req, res){
+    const duty= new VerifiedDutyData({
+        admissionNo:req.body.data.admissionNo,
+        date:req.body.data.date,
+        stime:req.body.data.stime,
+        etime:req.body.data.etime,
+        company:req.body.data.company,
+        branch:req.body.data.branch,
+        section:req.body.data.section,
+        sem:req.body.data.sem
+
+    })
+
+    duty.save();
+    //MailMessagee();
+    console.log('saved')
+});
+
+// **********************after verification*****************
+app.delete('/removeduty/:id',(req,res)=>{
+    id = req.params.id;
+    VerifiedDutydata.findByIdAndDelete({"_id":id})
+    .then(()=>{
+        console.log('success')
+        res.send();
+    })
+})
+
+
+
+
+
+
+
+
+//******************* add notice******************
 app.post('/addnotice' , function(req, res){
     const notice= new CompanyData({
         company:req.body.data.company,
@@ -238,11 +419,13 @@ app.post('/addnotice' , function(req, res){
         ctc:req.body.data.ctc,
         link:req.body.data.link
 
+
+
     })
 
     notice.save();
-    MailMessagee();
-    console.log('saved')
+    MailMessagee(notice.gpa,notice.xth,notice.xiith);
+    console.log("saved notice")
 });
 
 
@@ -346,34 +529,26 @@ app.put('/update',(req,res)=>{
 })
 
 
-//mail
+// **********************attendance marking**********************
 
+app.post('/markatt' , function(req, res){
+    const attlist= new AttendanceData({
+        
+    admissionNo : req.body.data.AdmissionNumber,
+    date : req.body.data.date,
+    stime : req.body.data.Starttime,
+    etime : req.body.data.Endtime,
+    company : req.body.data.company,
+    branch : req.body.data.branch,
+    section : req.body.data.section,
+    sem: req.body.data.sem
 
-// const transporter= mailer.createTransport({
-//     service:'gm',
-//     auth: {outlook
-//         user:process.env.EMAIL_USER,
-//         pass:process.env.EMAIL_PASS
-//     },
-// })
+    })
 
-// let body= {
-//    from:'pmssjcet@outlook.com',
- //   to:{donaarackal111@gmail.com','akshraa0002@gmail.com'}
-//     subject: "New notice published! ",
-//     html: '<h2> Apply Soon. </h2> <p></p>'
-// }
-// transporter.sendMail(body,(err,result)=>
-
-// {
-//     if(err){
-//         console.log(err);
-
-//         return false;
-//     }
-//     console.log(result);
-// })
-
+    attlist.save();
+   // MailMessagee();
+    console.log('saved')
+});
 
 
 

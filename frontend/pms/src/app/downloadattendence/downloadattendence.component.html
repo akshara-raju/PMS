@@ -21,11 +21,12 @@
                   <br>
                   <div class="form-group">
                       <!-- <input type="text" class="form-control" name="company"  placeholder="Company name"  > -->
-                      <input type="date" class="form-control" id="date" name="date" ngModel required>
+                      <input type="date" class="form-control" id="date"  [(ngModel)]="down.datee" name="date" required>
                       <label  id="error1"></label>
 
-                      
                   </div>
+
+
 
                   
                   
@@ -41,9 +42,9 @@
                   
                   <label id="check"></label>
                   <h1></h1>
-                  <button type="submit" [disabled]="!f.valid" class="btn btn-block" value="submit">DOWNLOAD</button>
+                  <button type="submit" [disabled]="!f.valid" (click)="newDown()" class="btn btn-block" value="submit">DOWNLOAD</button>
                   
-        
+                  
                   
                 </form>
                 <hr>
@@ -60,6 +61,12 @@
          </div><!--/col-12-->
     </div>
   </div>
+
+
+
+
+
+
 
 
   <!-- next -->

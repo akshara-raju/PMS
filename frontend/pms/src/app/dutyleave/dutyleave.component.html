@@ -20,7 +20,7 @@
                   <br>
                   
                   <div class="form-group">
-                    <input type="text" class="form-control" name="AdmissionNumber"  placeholder=" Admission Number" ngModel required >
+                    <input type="text" class="form-control" name="AdmissionNumber"  [(ngModel)]="addduty.admissionNo" placeholder=" Admission Number" ngModel required >
                     <label  id="error1"></label>
 
                     
@@ -28,7 +28,7 @@
 
                 <div class="form-group">
                     <!-- <input type="text" class="form-control" name="company"  placeholder="Company name"  > -->
-                    <input type="date" class="form-control" id="date" name="date" ngModel required>
+                    <input type="date" class="form-control" id="date" name="date" [(ngModel)]="addduty.date" required>
                     <label  id="error2"></label>
 
                     
@@ -36,7 +36,7 @@
                  
                 <div class="form-group">
                   <label  id="error3">Start Time</label>
-                  <input type="time" class="form-control" name="Starttime"  placeholder="Time" ngModel required >
+                  <input type="time" class="form-control" name="Starttime"  placeholder="Time" [(ngModel)]="addduty.stime" required >
                   
 
                   
@@ -47,7 +47,7 @@
                  
               <div class="form-group">
                 <label  id="error4">End Time</label>
-                <input type="time" class="form-control" name="Endtime"  placeholder="Time"  ngModel required>
+                <input type="time" class="form-control" name="Endtime"  placeholder="Time" [(ngModel)]="addduty.etime" required>
                 
 
                 
@@ -60,12 +60,13 @@
                   <label  id="error5"></label>
 
                   <select 
-                        ngModel
+                  [(ngModel)]="addduty.company"
                         name="company" 
                         id="company" 
                         placeholder="company" 
                         class="form-control"
                         required
+                        
                   > 
                     <option placeholder="Company" value="">--Company--</option>
                     <!-- <option>--Company--</option> -->
@@ -85,12 +86,13 @@
 
 
                       <select 
-                      ngModel
+                      [(ngModel)]="addduty.branch"
                       name="branch" 
                       id="branch" 
                       placeholder="branch" 
                       class="input-control"
                       required
+                      
                 > 
                         <option placeholder="Branch" value="">--Branch--</option>
                         <option>Artificial Intelligence & Data Science</option>
@@ -109,7 +111,7 @@
                     <label  id="error7"></label>
   
                     <select 
-                    ngModel
+                    [(ngModel)]="addduty.section"
                     name="section" 
                     id="section" 
                     placeholder="section" 
@@ -130,18 +132,23 @@
   
 
                     <select 
-                    ngModel
-                    name="year" 
-                    id="year" 
-                    placeholder="year" 
+                    [(ngModel)]="addduty.sem"
+                    name="sem" 
+                    id="sem" 
+                    placeholder="sem" 
                     class="input-control"
                     required
+                    
               > 
-                      <option placeholder="Year" value="">--Year Of Study--</option>
-                      <option>4th</option>
-                      <option>3rd</option>
-                      <option>2nd</option>
-                      <option>1st</option>
+                      <option placeholder="sem" value="">--Semester--</option>
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                      <option>6</option>
+                      <option>7</option>
+                      <option>8</option>
                       
                     </select>
                 </div>
@@ -161,7 +168,7 @@
                   
                   <label id="check"></label>
                   <h1></h1>
-                  <button type="submit" [disabled]="!f.valid" class="btn btn-block" value="submit">APPLY</button>
+                  <button type="submit"  [disabled]="!f.valid" (click)="AddDuty()" class="btn btn-block" value="submit">APPLY</button>
                   
         
                   

@@ -11,7 +11,8 @@ var PlacementSchema = new Schema({
     branch : String,
     company : String,
     title: String,
-    ctc : String
+    ctc : String,
+    year : String
     
 });
 
